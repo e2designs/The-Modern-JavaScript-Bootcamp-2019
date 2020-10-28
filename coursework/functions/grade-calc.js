@@ -19,7 +19,9 @@ let gradeCalc = function(score, possible){
     } else {
         letterGrade = 'F'
     }
-    console.log(`${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`)
+    msg = `${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`
+    console.log(msg)
+    return msg
 }
 
 
