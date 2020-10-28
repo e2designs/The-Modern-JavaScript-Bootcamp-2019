@@ -6,18 +6,20 @@
 let gradeCalc = function(score, possible){
     let percentage = (score / possible) * 100
     let letterGrade = null
-    if (percentage <= 59){
-        letterGrade = 'F'
-    } else if (percentage >= 90){
+    let vowel = 'a'
+    if (percentage >= 90){
         letterGrade = 'A'
-    } else if (percentage >=60 && percentage <= 69){
-        letterGrade = 'D'
-    } else if (percentage >=70 && percentage <= 79){
-        letterGrade = 'C'
-    } else if (percentage >=80 && percentage <= 89){
+        vowel = 'an'
+    } else if (percentage >= 80){
         letterGrade = 'B'
+    } else if (percentage >=70){
+        letterGrade = 'C'
+    } else if (percentage >=60){
+        letterGrade = 'D'
+    } else {
+        letterGrade = 'F'
     }
-    console.log(`${score}/${possible} -> You received a ${letterGrade} (${percentage}%)`)
+    console.log(`${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`)
 }
 
 
