@@ -1,34 +1,3 @@
-// Create an array with 5 todos
-// Log You have x todos
-// Print the first and second to the last items -> Todo: walk the dog
-
-//const todos = ['Walk the dog', 'Feed the dog', 'Brush the dog', 'Wash the dog', 'Cleanup after the dog']
-
-// // Delete 3rd item
-// console.log(todos.splice(2, 1))
-// // add new item onto the end
-// console.log(todos.push('New dog item'))
-// // Remove the first item from the list.
-// console.log(todos.shift())
-
-/*
-console.log(`You have ${todos.length} todos`)
-// Output all todos with forEach
-// Count in order
-todos.forEach(function(item, index){
-    console.log(`${index + 1}. ${item}.`)
-})
-
-// Output all todos with for
-// Count in a different order or conditional
-for (count = 0; count < todos.length; count++){
-    console.log(`${count + 1}. ${todos[count]}.`)
-}
-*/
-
-// 1. Convert array to array of objects
-//    text: Task todo.
-//    completed: boolean
 const todos = [{
     text: 'Walk the dog',
     completed: false
@@ -40,7 +9,7 @@ const todos = [{
     completed: false
  }, {
     text: 'Buy Dog Food',
-    completed: true
+    completed: false
  }, {
     text: 'Cleanup after the dog',
     completed: false
@@ -58,6 +27,12 @@ const deleteTodo = function(todos, todoText) {
         todos.splice(index, 1)
     }
 }
+const getThingsToDo= function(todos){
+    return todos.filter(function(todo){
+        return !todo.completed
+    })
+} 
 
-deleteTodo(todos, 'buy dog food')
-console.log(todos)
+console.log(getThingsToDo(todos))
+// deleteTodo(todos, 'buy dog food')
+// console.log(todos)
