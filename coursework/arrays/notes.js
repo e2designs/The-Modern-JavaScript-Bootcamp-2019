@@ -10,6 +10,20 @@ notes = [{
     body: 'Build a new spaced'
 }]
 
+const sortNotes = function(notes) {
+    notes.sort(function(a, b){
+        const alpha = a.title.toLowerCase()
+        const beta = b.title.toLowerCase()
+        if (alpha < beta){
+            return -1
+        } else if (alpha > beta){
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
 // Find returns object
 const findNote = function (notes, noteTitle){
     return notes.find(function(note, index){
@@ -26,8 +40,12 @@ const findNotes = function(notes, query){
     })
 }
 
-// Arrays are passed by reference
-const note = findNote(notes, 'office modification')
-console.log(note)
 
-console.log(findNotes(notes, 'to'))
+// Arrays are passed by reference
+// const note = findNote(notes, 'office modification')
+// console.log(note)
+
+// console.log(findNotes(notes, 'to'))
+
+sortNotes(notes)
+console.log(notes)

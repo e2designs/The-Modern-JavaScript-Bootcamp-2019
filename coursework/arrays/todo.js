@@ -27,12 +27,30 @@ const deleteTodo = function(todos, todoText) {
         todos.splice(index, 1)
     }
 }
-const getThingsToDo= function(todos){
+const getThingsToDo = function(todos){
     return todos.filter(function(todo){
         return !todo.completed
     })
 } 
 
+const sortTodos = function(todos){
+    todos.sort(function(a, b){
+        if (!a.completed && b.completed){
+            return -1
+        } else if (!b.completed && a.completed){
+            return 1
+        } else if (a.text.toLowerCase() < b.text.toLowerCase()){
+            return -1
+        } else if (b.text.toLowerCase() < a.text.toLowerCase()){
+            return 1
+        } else {
+            return 0
+        }
+
+    })
+}
 console.log(getThingsToDo(todos))
 // deleteTodo(todos, 'buy dog food')
 // console.log(todos)
+sortTodos(todos)
+console.log(todos)
