@@ -1,0 +1,10 @@
+1. Create a new HTML file
+2. An H1 and 5 p tags
+    Things to do
+    Items
+3. Serve that folder and view doc in browser.
+
+
+1. Create and link a JavaScript file to the HTML
+2. Iterate over every paragraph.
+3. Remove any paragraph with the word "the". 
