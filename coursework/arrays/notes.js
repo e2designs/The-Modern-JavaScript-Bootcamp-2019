@@ -1,5 +1,5 @@
 
-notes = [{
+const notes = [{
     title: 'My next trip',
     body: 'I would like to go to Maui.'
 }, {

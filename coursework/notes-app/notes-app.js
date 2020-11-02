@@ -1,5 +1,15 @@
 // DOM - Document Object Model
 
+const notes = [{
+    title: 'My next trip',
+    body: 'I would like to go to Maui.'
+}, {
+    title: 'Habbits to work on',
+    body: 'Exercise, eating better'
+}, {
+    title: 'Office Modification',
+    body: 'Build a new spaced'
+}]
 // console.log('This is from a separate file.')
 // query and remove
 const element = document.querySelector('p')
