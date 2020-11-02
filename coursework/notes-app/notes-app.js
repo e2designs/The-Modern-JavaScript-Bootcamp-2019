@@ -11,11 +11,27 @@ const notes = [{
     body: 'Build a new spaced'
 }]
 
-
-document.querySelector('button').addEventListener('click', function(e){
+// use # for ids, also used for css
+document.querySelector('#create-note').addEventListener('click', function(e){
     e.target.textContent = 'I was clicked!'
 })
 
-document.querySelectorAll('button')[1].addEventListener('click', function(e){
+// By using array location, it is closely coupled with html order.
+document.querySelector('button#remove-all').addEventListener('click', function(e){
     console.log('Delete all notes.')
+    // use . for classes
+    document.querySelectorAll('.note').forEach(function(note){
+        note.remove()
+    })
 })
+
+// -- Single --
+// p
+// #replace
+// .item
+
+// -- Multiple --
+// p#order
+// button.inventory
+// h1#title.application
+// h1.application#title

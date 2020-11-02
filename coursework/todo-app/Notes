@@ -8,3 +8,7 @@
 1. Create and link a JavaScript file to the HTML
 2. Iterate over every paragraph.
 3. Remove any paragraph with the word "the". 
+
+ID = relates to at most one element.
+
+Classes = relates to a group of elements. 
