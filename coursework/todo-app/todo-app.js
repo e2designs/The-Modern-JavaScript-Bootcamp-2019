@@ -35,3 +35,8 @@ todos.forEach(function(todo){
     p.textContent = todo.text
     document.querySelector('body').appendChild(p)
 })
+
+// Listen for new todo creation
+document.querySelector('button').addEventListener('click', function(e){
+    console.log('Adding a new ToDo')
+})
