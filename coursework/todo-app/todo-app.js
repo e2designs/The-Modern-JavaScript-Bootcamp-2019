@@ -36,11 +36,9 @@ const notComplete = function(todos){
 const renderTodos = function(todos, filters){
     const filteredTodos = todos.filter(function(todo){
         matchedTodo = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-        if (filters.hideCompleted){
-            return matchedTodo && !todo.completed
-        } else {
-            return matchedTodo 
-        }
+        hideCompleted = !filters.hideCompleted || !todo.completed
+        
+        return matchedTodo && hideCompleted
     })
     const numToDo = notComplete(filteredTodos).length
 
