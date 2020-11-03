@@ -1,37 +1,24 @@
-const todos = [{
-    text: 'Walk the dog',
-    completed: false
- }, {
-    text: 'Feed the dog', 
-    completed: true
- }, {
-    text: 'Brush the dog', 
-    completed: false
- }, {
-    text: 'Buy Dog Food',
-    completed: false
- }, {
-    text: 'Cleanup after the dog',
-    completed: false
- }, {
-    text: 'Wash the dog', 
-    completed: true
- }]
+// 1. Delete Dummy Data
+// 2. Read and Parse the data when the app starts up.
+// 3. Stringify and write the data when new data is added.
 
-// 1. Setup a div to contain todos
-// 2. Setup filters (searchText) and wire up a new filter input to change it.
-// 3. Create a renderTodos function to render and rerender the latest filtered data.
+let todos = []
 
 const filters = {
     searchText: '',
     hideCompleted: false
 }
+
+const todoJSON = localStorage.getItem('todos')
+if (todoJSON !== null){
+    todos = JSON.parse(todoJSON)
+}
+
 const notComplete = function(todos){
     return todos.filter(function(todo){
         return !todo.completed
     })
 }
-
 
 const renderTodos = function(todos, filters){
     const filteredTodos = todos.filter(function(todo){
@@ -48,7 +35,11 @@ const renderTodos = function(todos, filters){
     document.querySelector('#todos').appendChild(notCompEl)
     filteredTodos.forEach(function(todo){
         const todoElement = document.createElement('p')
-        todoElement.textContent = todo.text
+        if (todo.text.length > 0){
+            todoElement.textContent = todo.text
+        } else {
+            todoElement.textContent = 'Undefined Todo'
+        }
         document.querySelector('#todos').appendChild(todoElement)
     })
 }
@@ -67,6 +58,7 @@ document.querySelector('#add-todo').addEventListener('submit', function(e){
         text: e.target.elements.newToDo.value, 
         complete: false
     })
+    localStorage.setItem('todos', JSON.stringify(todos))
     renderTodos(todos, filters)   
     e.target.elements.newToDo.value = ''
 })
