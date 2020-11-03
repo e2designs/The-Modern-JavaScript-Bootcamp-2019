@@ -12,3 +12,21 @@
 ID = relates to at most one element.
 
 Classes = relates to a group of elements. 
+
+
+// -- Single --
+// p
+// #replace
+// .item
+
+// -- Multiple --
+// p#order
+// button.inventory
+// h1#title.application
+// h1.application#title
+
+eventListener
+    - change - fires on focus away
+    - input - fires on every change
+
+<div> - Content division

@@ -1,6 +1,7 @@
 // 1. You can't define a variable more than once
 
 let petName = 'Leia'
+console.log(petName)
 petName = 'Daisy'
 console.log(petName)
 
