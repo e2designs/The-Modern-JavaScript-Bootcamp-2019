@@ -36,16 +36,13 @@ document.querySelector('#create-note').addEventListener('click', function(e){
     e.target.textContent = 'I was clicked!'
 })
 
-// By using array location, it is closely coupled with html order.
-document.querySelector('button#remove-all').addEventListener('click', function(e){
-    console.log('Delete all notes.')
-    // use . for classes
-    document.querySelectorAll('.note').forEach(function(note){
-        note.remove()
-    })
-})
-
 document.querySelector('#search-text').addEventListener('input', function(e){
     filters.searchText = e.target.value
     renderNotes(notes, filters)
+})
+
+document.querySelector('#name-form').addEventListener('submit', function(e){
+    e.preventDefault()
+    console.log(e.target.elements.firstName.value)
+    e.target.elements.firstName.value = ''
 })
