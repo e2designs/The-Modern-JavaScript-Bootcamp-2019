@@ -6,8 +6,6 @@ const filters = {
     searchText: ''
 }
 
-
-
 renderNotes(notes, filters)
 
 // use # for ids, also used for css
@@ -16,7 +14,7 @@ document.querySelector('#create-note').addEventListener('click', function(e){
         title: '',
         body: ''
     })
-    localStorage.setItem('notes', JSON.stringify(notes))
+    saveNotes(notes)
     renderNotes(notes, filters)
 })
 
