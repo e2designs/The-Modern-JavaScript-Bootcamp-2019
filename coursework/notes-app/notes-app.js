@@ -15,22 +15,6 @@ const filters = {
     searchText: ''
 }
 
-// CRUD Create, Read, Update, Delete
-// Create
-// localStorage.setItem('location', 'Philadelphia')
-
-// Read
-localStorage.getItem('location')
-
-// Update
-// localStorage.setItem('location', 'Philadelphia')
-
-// Delete
-localStorage.removeItem('location')
-
-// Delete all
-localStorage.clear()
-
 const renderNotes = function(notes, filters) {
     const filteredNotes = notes.filter(function(note){
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())

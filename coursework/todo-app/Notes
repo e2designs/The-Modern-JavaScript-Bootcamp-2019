@@ -30,3 +30,19 @@ eventListener
     - input - fires on every change
 
 <div> - Content division
+
+// CRUD Create, Read, Update, Delete
+// Create
+// localStorage.setItem('location', 'Philadelphia')
+
+// Read
+localStorage.getItem('location')
+
+// Update
+// localStorage.setItem('location', 'Philadelphia')
+
+// Delete
+localStorage.removeItem('location')
+
+// Delete all
+localStorage.clear()
