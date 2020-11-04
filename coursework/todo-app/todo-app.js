@@ -26,6 +26,5 @@ document.querySelector('#add-todo').addEventListener('submit', function(e){
 
 document.querySelector('#hide-completed').addEventListener('change', function(e){
     filters.hideCompleted = e.target.checked
-    console.log(`Hiding Completed: ${JSON.stringify(filters)}`)
     renderTodos(todos, filters)
 })

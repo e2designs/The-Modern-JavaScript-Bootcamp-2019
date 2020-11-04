@@ -18,14 +18,12 @@ const renderTodos = function(todos, filters){
     const filteredTodos = todos.filter(function(todo){
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompleted = !filters.hideCompleted || !todo.completed
-        console.log(`Hide Completed eval: ${hideCompleted}`) 
         return searchTextMatch && hideCompleted
     })
 
     const incompleteTodos = filteredTodos.filter(function (todo){
         return !todo.completed
     })
-    console.log(`INCOMPLETE: ${JSON.stringify(incompleteTodos)}`)
     document.querySelector('#todos').innerHTML = ''
     document.querySelector('#todos').appendChild(generateTodoSum(incompleteTodos))
     filteredTodos.forEach(function(todo){
