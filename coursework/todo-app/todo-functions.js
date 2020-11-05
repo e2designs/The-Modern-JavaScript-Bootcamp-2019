@@ -33,13 +33,30 @@ const renderTodos = function(todos, filters){
 
 // Generate DOM structure for a todo
 const generateTodoDOM = function(todo){
-    const todoElement = document.createElement('p')
+    const todoEl = document.createElement('div')
+    const completeCheck = document.createElement('input')
+    const delTodo  = document.createElement('button')
+    const textEl = document.createElement('span')
+
+    // Setup checkbox for Todo
+    // completeCheck.setAttribute('type', 'checkbox')
+    completeCheck.type = 'checkbox'
+    todoEl.appendChild(completeCheck)
+
+
+    // Generate todo text
     if (todo.text.length > 0){
-        todoElement.textContent = todo.text
+        textEl.textContent = ` ${todo.text} `
     } else {
-        todoElement.textContent = 'Undefined Todo'
+        textEl.textContent = ' Undefined Todo '
     }
-    return todoElement
+    todoEl.appendChild(textEl)
+
+    // Setup delete todo button.
+    delTodo.textContent = 'x'
+    todoEl.appendChild(delTodo)
+
+    return todoEl
 }
 
 // Generate DOM structure for summary
