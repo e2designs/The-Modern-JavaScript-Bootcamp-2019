@@ -1,4 +1,5 @@
 // DOM - Document Object Model
+console.log(uuidv4())
 
 const notes = getSavedNotes()
 
@@ -11,6 +12,7 @@ renderNotes(notes, filters)
 // use # for ids, also used for css
 document.querySelector('#create-note').addEventListener('click', function(e){
     notes.push({
+        id: uuidv4(),
         title: '',
         body: ''
     })
