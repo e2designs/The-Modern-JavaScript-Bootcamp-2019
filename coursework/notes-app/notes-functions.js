@@ -44,7 +44,7 @@ const generateNoteDOM = function(note){
     // setup the note title text
     textEl.href = `edit.html#${note.id}`
     if (note.title.length > 0){
-        textEl.textContent = ` ${note.title}`
+        textEl.textContent = `${note.title}`
     } else {
         textEl.textContent = 'Unamed Note'
     }
