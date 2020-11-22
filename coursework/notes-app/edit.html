@@ -7,9 +7,14 @@
     <body>
         <a href="/index.html">Home</a>
         <input id="note-title" placeholder="Note title">
+        <span id="last-edited"></span>
         <textarea id="note-body" cols="30" rows="10" placeholder="Enter Note text here"></textarea>
         <button id="remove-note">Remove Note</button>
         <button id="submit-note">Submit</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+            integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+            crossorigin="anonymous">
+        </script>
         <script src="notes-functions.js"></script>
         <script src="notes-edit.js"></script>
     </body>

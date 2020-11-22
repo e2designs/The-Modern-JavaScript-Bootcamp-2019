@@ -9,12 +9,16 @@
         <h5 class="cw">This application was created by Eric Evans.</h5>
         <input id="search-text" type="text" placeholder="Filter notes">
         <select id="filter-by">
-            <option value="byLast">Sort by last edited</option>
+            <option value="byEdited">Sort by last edited</option>
             <option value="byCreated">Sort by recently created</option>
             <option value="alphabetical">Sort alphabetically</option>
         </select>
         <div id="notes"></div>
         <button id="create-note">Create Note</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+            integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+            crossorigin="anonymous">
+        </script>
         <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js">
             import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
         </script>
