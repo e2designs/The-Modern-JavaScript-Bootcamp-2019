@@ -62,9 +62,9 @@ const generateTodoDOM = (todo) => {
 
     // Generate todo text
     if (todo.text.length > 0){
-        textEl.textContent = ` ${todo.text} `
+        textEl.textContent = `${todo.text}`
     } else {
-        textEl.textContent = ' Undefined Todo '
+        textEl.textContent = 'Undefined Todo'
     }
     todoEl.appendChild(textEl)
 
