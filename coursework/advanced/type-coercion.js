@@ -25,6 +25,7 @@ console.log(typeof {})
 console.log(typeof [])
 console.log(typeof 'see me')
 
+// True = 1, false = 0
 const value = true + 12
 const type = typeof value
 console.log(type)

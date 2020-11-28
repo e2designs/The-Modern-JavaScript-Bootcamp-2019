@@ -4,29 +4,46 @@
 
 
 let gradeCalc = function(score, possible){
-    let percentage = (score / possible) * 100
-    let letterGrade = null
-    let vowel = 'a'
-    if (percentage >= 90){
-        letterGrade = 'A'
-        vowel = 'an'
-    } else if (percentage >= 80){
-        letterGrade = 'B'
-    } else if (percentage >=70){
-        letterGrade = 'C'
-    } else if (percentage >=60){
-        letterGrade = 'D'
+
+    if (typeof score === 'number' && typeof possible === 'number') {
+        let percentage = (score / possible) * 100
+        let letterGrade = null
+        let vowel = 'a'
+        if (percentage >= 90){
+            letterGrade = 'A'
+            vowel = 'an'
+        } else if (percentage >= 80){
+            letterGrade = 'B'
+        } else if (percentage >=70){
+            letterGrade = 'C'
+        } else if (percentage >=60){
+            letterGrade = 'D'
+        } else {
+            letterGrade = 'F'
+        }
+        msg = `${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`
+        console.log(msg)
+        return msg
     } else {
-        letterGrade = 'F'
+        throw Error('Arguments must be numbers')
     }
-    msg = `${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`
-    console.log(msg)
-    return msg
 }
 
+// pass
+try {
+    // Test scenarios
+    gradeCalc(90, 100)
+    gradeCalc(7, 8)
+    gradeCalc(15, 20)
+    gradeCalc(5, 8)
+    gradeCalc(5, 50)
 
-gradeCalc(90, 100)
-gradeCalc(7, 8)
-gradeCalc(15, 20)
-gradeCalc(5, 8)
-gradeCalc(5, 50)
+} catch (e){
+    console.log(e.message)
+}
+
+try {
+    gradeCalc(90, 'A')
+} catch (e){
+    console.log(e.message)
+}
