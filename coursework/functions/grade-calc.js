@@ -4,29 +4,29 @@
 
 
 let gradeCalc = function(score, possible){
-
-    if (typeof score === 'number' && typeof possible === 'number') {
-        let percentage = (score / possible) * 100
-        let letterGrade = null
-        let vowel = 'a'
-        if (percentage >= 90){
-            letterGrade = 'A'
-            vowel = 'an'
-        } else if (percentage >= 80){
-            letterGrade = 'B'
-        } else if (percentage >=70){
-            letterGrade = 'C'
-        } else if (percentage >=60){
-            letterGrade = 'D'
-        } else {
-            letterGrade = 'F'
-        }
-        msg = `${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`
-        console.log(msg)
-        return msg
-    } else {
+    // Error check first
+    if (typeof score !== 'number' || typeof possible !== 'number') {
         throw Error('Arguments must be numbers')
+    } 
+
+    let percentage = (score / possible) * 100
+    let letterGrade = null
+    let vowel = 'a'
+    if (percentage >= 90){
+        letterGrade = 'A'
+        vowel = 'an'
+    } else if (percentage >= 80){
+        letterGrade = 'B'
+    } else if (percentage >=70){
+        letterGrade = 'C'
+    } else if (percentage >=60){
+        letterGrade = 'D'
+    } else {
+        letterGrade = 'F'
     }
+    msg = `${score}/${possible} -> You received ${vowel} ${letterGrade} (${percentage}%)`
+    console.log(msg)
+    return msg
 }
 
 // pass
