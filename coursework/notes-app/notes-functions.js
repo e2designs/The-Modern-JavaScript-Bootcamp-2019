@@ -1,6 +1,4 @@
-// single global namespace
-// Order of script import matters.
-
+'use strict'
 
 // Read existing notes data from localStorage
 const getSavedNotes = () => {
