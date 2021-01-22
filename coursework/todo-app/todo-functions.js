@@ -82,6 +82,7 @@ const generateTodoDOM = (todo) => {
         saveTodos(todos)
         renderTodos(todos, filters)
     })
+    console.log(todoEl)
     return todoEl
 }
 
