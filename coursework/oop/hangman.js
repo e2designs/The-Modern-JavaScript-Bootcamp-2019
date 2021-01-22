@@ -13,20 +13,20 @@ const Hangman = function (word, remainingGuesses) {
 
 Hangman.prototype.getGuess = function (guess) {
     if (this.guesses.includes(guess)){
-        console.log(`${guess} has already been used`)
+        console.log(`Guess: '${guess}' has already been used`)
     } else {
         this.guesses.push(guess.toLowerCase())
         this.remainingGuesses -= 1
     }
-    let output = ''
+    let puzzle = ''
     this.word.forEach((letter) => {
         if (this.guesses.includes(letter) || letter === ' ') {
-            output += letter
+            puzzle += letter
         } else {
-            output += '*'
+            puzzle += '*'
         }
     })
-    console.log(`Guesses: ${this.guesses} WORD: ${output} you have ${this.remainingGuesses} remaining`)
+    console.log(`Guesses: ${this.guesses} WORD: ${puzzle} you have ${this.remainingGuesses} remaining`)
 }
 
 const game1 = new Hangman('Ocean', '6')
