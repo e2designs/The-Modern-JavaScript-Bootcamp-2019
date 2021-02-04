@@ -1,16 +1,12 @@
-// 1. Set up the word instance property as an array of lower case letters.
-// 2. Set up another instance property to store guessed letters.
-// 3. Create a method that gives you the word puzzle back. 
 
-// No guesses? -> ***
-// Guessed "c", "b", and "t"? -> c*t
-
+// Function for tracking the word, guessedLetters and remainingGuesses
 const Hangman = function (word, remainingGuesses) {
     this.word = word.toLowerCase().split('')
     this.guessedLetters = []
     this.remainingGuesses = remainingGuesses
 }
 
+// Get Puzzle prototype - Returns the curent puzzle state (solved or unsolved letters)
 Hangman.prototype.getPuzzle = function () {
     let puzzle = ''
 
@@ -25,27 +21,19 @@ Hangman.prototype.getPuzzle = function () {
     return puzzle
 }
 
+// Process guess from user
 Hangman.prototype.makeGuess = function (guess) {
     guess = guess.toLowerCase()
     const isUnique = !this.guessedLetters.includes(guess)
-    const badGuess = !this.word.includes(guess)
+    const isBadGuess = !this.word.includes(guess)
     if (isUnique) {
         this.guessedLetters.push(guess)
-        this.remainingGuesses--
     } else {
         console.log(`Guess: '${guess}' has already been used`)
     }
-    // console.log(`Guesses: ${this.guesses} WORD: ${puzzle} you have ${this.remainingGuesses} remaining`)
+    
+    if (isUnique && isBadGuess) {
+        this.remainingGuesses--
+    }
 }
 
-const game1 = new Hangman('Ocean', '6')
-console.log(game1.getPuzzle())
-console.log(game1.remainingGuesses)
-
-
-window.addEventListener('keypress', function (e) {
-    const guess = String.fromCharCode(e.charCode)
-    game1.makeGuess(guess)
-    console.log(game1.getPuzzle())
-    console.log(game1.remainingGuesses)
-})

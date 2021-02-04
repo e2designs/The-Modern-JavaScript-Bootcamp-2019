@@ -1,21 +1,11 @@
-// product --> Object.prototype --> null
-const Product = function () {
-    this.name = 'Influence'
-}
+const game1 = new Hangman('Ocean', '6')
+console.log(game1.getPuzzle())
+console.log(game1.remainingGuesses)
 
-Product.prototype.getName = function () {
-    return this.name
-}
-myProduct = new Product()
-// hasOwnProperty
-console.log(Product.hasOwnProperty('getName'))
-console.log(Product)
-console.log(myProduct.hasOwnProperty('name'))
-console.log(myProduct.hasOwnProperty('getName'))
-console.log(myProduct.getName())
 
-const person = {
-    name: 'Eric'
-}
-person.hasOwnProperty = () => console.log('Do not do this')
-console.log(person)
+window.addEventListener('keypress', function (e) {
+    const guess = String.fromCharCode(e.charCode)
+    game1.makeGuess(guess)
+    console.log(game1.getPuzzle())
+    console.log(game1.remainingGuesses)
+})
