@@ -7,7 +7,8 @@ class Hangman {
         this.remainingGuesses = remainingGuesses
         this.status = 'playing'
     }
-    getPuzzle () {
+    
+    getPuzzle() {
         let puzzle = ''
 
         this.word.forEach((letter) => {
@@ -21,7 +22,7 @@ class Hangman {
         return puzzle
     }
 
-    getStatus () {
+    getStatus() {
         if (this.status === 'playing') {
             return `Remaining Guesses: ${this.remainingGuesses}`
         } else if (this.status === 'finished') {
@@ -33,7 +34,7 @@ class Hangman {
         }
     }
 
-    makeGuess (guess) {
+    makeGuess(guess) {
         guess = guess.toLowerCase()
         if (this.status != 'playing') {
             return
@@ -52,7 +53,7 @@ class Hangman {
         this.updateStatus()
     }
 
-    updateStatus () {
+    updateStatus() {
         const finished = this.getPuzzle() === this.word.join('')
         const failed = this.remainingGuesses < 1
         if (finished && !failed) {
