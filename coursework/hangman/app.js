@@ -1,11 +1,10 @@
-const game1 = new Hangman('Ocean', '6')
-console.log(game1.getPuzzle())
-console.log(game1.remainingGuesses)
-
+const game1 = new Hangman('New Jersey', '6')
+let puzzle = game1.getPuzzle()
+let remainingGuesses = game1.remainingGuesses
+renderPuzzle(game1)
 
 window.addEventListener('keypress', function (e) {
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
-    console.log(game1.getPuzzle())
-    console.log(game1.remainingGuesses)
+    renderPuzzle(game1)
 })
