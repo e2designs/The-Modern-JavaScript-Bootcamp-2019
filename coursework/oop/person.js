@@ -36,6 +36,10 @@ class Employee extends Person {
         let bio = `${this.firstName} ${this.lastName} is a ${this.position}.`
         return bio
     }
+
+    getRetirement() {
+        return 65 - this.age
+    }
 }
 
 const myPerson = new Employee('Eric', 'Evans', 46, 'Instructor', ['Teaching'])
@@ -43,6 +47,7 @@ console.log(myPerson)
 console.log(myPerson.getBio())
 console.log(myPerson.setName('Julie Park'))
 console.log(myPerson)
+console.log(myPerson.getRetirement())
 
 
 const me = new Person('Eric', 'Evans', '45', ['Python', 'Woodworking'])
