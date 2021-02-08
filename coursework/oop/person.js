@@ -42,18 +42,24 @@ class Employee extends Person {
     }
 }
 
-const myPerson = new Employee('Eric', 'Evans', 46, 'Instructor', ['Teaching'])
-console.log(myPerson)
-console.log(myPerson.getBio())
-console.log(myPerson.setName('Julie Park'))
-console.log(myPerson)
-console.log(myPerson.getRetirement())
+class Student extends Person {
+    constructor(firstName, lastName, age, grade, likes) {
+        super(firstName, lastName, age, likes) 
+        this.grade = grade
+    }
+    getBio() {
+        const status = this.grade >= 70 ? 'passing!' : 'failing'
+        return `${ this.firstName } is ${status}`
+    }
+    updateGrade(grade) {
+        this.grade += grade
+    }
+}
 
-
-const me = new Person('Eric', 'Evans', '45', ['Python', 'Woodworking'])
-
-me.setName('Alexis Turner')
-console.log(me.getBio())
-
-const person2 = new Person('Andrew', 'Mead', '27')
-console.log(person2.getBio())
+const mary = new Student('Mary', 'Smith', 16, 60, ['Computers'])
+console.log(mary)
+console.log(mary.getBio())
+mary.updateGrade(20) 
+console.log(mary.getBio())
+mary.updateGrade(-30) 
+console.log(mary.getBio())
