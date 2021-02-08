@@ -31,6 +31,11 @@ class Employee extends Person {
         super(firstName, lastName, age, likes)
         this.position = position
     }
+
+    getBio() {
+        let bio = `${this.firstName} ${this.lastName} is a ${this.position}.`
+        return bio
+    }
 }
 
 const myPerson = new Employee('Eric', 'Evans', 46, 'Instructor', ['Teaching'])
