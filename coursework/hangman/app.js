@@ -1,5 +1,5 @@
 const game1 = new Hangman('New Jersey', '6')
-let puzzle = game1.getPuzzle()
+let puzzle = game1.puzzle
 let remainingGuesses = game1.remainingGuesses
 renderPuzzle(game1)
 

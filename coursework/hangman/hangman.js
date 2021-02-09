@@ -8,21 +8,21 @@ class Hangman {
         this.status = 'playing'
     }
     
-    getPuzzle() {
-        let puzzle = ''
+    get puzzle() {
+        let _puzzle = ''
 
         this.word.forEach((letter) => {
             if (this.guessedLetters.includes(letter) || letter === ' ') {
-                puzzle += letter
+                _puzzle += letter
             } else {
-                puzzle += '*'
+                _puzzle += '*'
             }
         })
 
-        return puzzle
+        return _puzzle
     }
 
-    getStatus() {
+    get statusMessage() {
         if (this.status === 'playing') {
             return `Remaining Guesses: ${this.remainingGuesses}`
         } else if (this.status === 'finished') {
@@ -54,7 +54,7 @@ class Hangman {
     }
 
     updateStatus() {
-        const finished = this.getPuzzle() === this.word.join('')
+        const finished = this.puzzle === this.word.join('')
         const failed = this.remainingGuesses < 1
         if (finished && !failed) {
             this.status = 'finished'
@@ -66,6 +66,7 @@ class Hangman {
 }
 
 const renderPuzzle = (game) => {
+    console.log('renderPuzzle called')
     document.querySelector('#puzzle').innerHTML = ''
     document.querySelector('#remaining').innerHTML = ''
     document.querySelector('#puzzle').appendChild(generatePuzzleDOM(game))
@@ -75,7 +76,7 @@ const renderPuzzle = (game) => {
 const generatePuzzleDOM = (game) => {
     const puzzleEl = document.createElement('div')
     const textEl = document.createElement('span')
-    textEl.textContent = `Puzzle: ${game.getPuzzle()}`
+    textEl.textContent = `Puzzle: ${game.puzzle}`
     puzzleEl.appendChild(textEl)
     return puzzleEl
 }
@@ -83,7 +84,7 @@ const generatePuzzleDOM = (game) => {
 const generateRemainingDOM = (game) => {
     const remainingEl = document.createElement('div')
     const textEl = document.createElement('span')
-    textEl.textContent = game.getStatus()
+    textEl.textContent = game.statusMessage
     remainingEl.appendChild(textEl)
     return remainingEl
 }
